@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="orbfpp" class="com.cjq.spring.beanfactorypostprocessor.ObscenityRemovingBeanFactoryPostProcessor">
+        <property name="obscenities">
+            <set>
+                <value>bollocks</value>
+                <value>winky</value>
+                <value>bum</value>
+                <value>Microsoft</value>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="simplePostProcessor" class="com.cjq.spring.beanfactorypostprocessor.SimplePostProcessor">
+
+        <property name="connectionString" value="bollocks"/>
+        <property name="username" value="cjq"/>
+        <property name="password" value="bum"/>
+    </bean>
+</beans>

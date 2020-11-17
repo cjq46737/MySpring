@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource" destroy-method="closeConnection">
+
+        <property name="driverClassName" value="com.thunisoft.ArteryBase.Driver"/>
+        <property name="url" value="jdbc:ArteryBase://172.25.8.91:5432/cjq"/>
+        <property name="username" value="sa"/>
+        <property name="password" value="tusc@6789#JKL"/>
+    </bean>
+
+    <bean id="userService" class="com.cjq.spring.jdbc.service.UserServiceImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--
+    // jdbcTemplate = new JdbcTemplate();
+    // SingleConnectionDataSource dataSource = new SingleConnectionDataSource();
+    // dataSource.setDriverClassName("com.thunisoft.ArteryBase.Driver");
+    // dataSource.setUrl("jdbc:ArteryBase://localhost:6543/db_xtypt_gz");
+    // dataSource.setUsername("sa");
+    // dataSource.setPassword("tusc@6789#JKL");
+    // jdbcTemplate.setDataSource(dataSource);
+-->
+</beans>
