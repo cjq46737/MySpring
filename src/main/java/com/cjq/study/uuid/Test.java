@@ -6,6 +6,11 @@
  */
 package com.cjq.study.uuid;
 
+import org.springframework.aop.IntroductionAwareMethodMatcher;
+import org.springframework.aop.support.StaticMethodMatcher;
+
+import java.lang.reflect.Method;
+
 /**
  * Test
  * @description TODO
@@ -16,6 +21,12 @@ package com.cjq.study.uuid;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(System.currentTimeMillis());
+        StaticMethodMatcher staticMethodMatcher = new StaticMethodMatcher() {
+            @Override
+            public boolean matches(Method method, Class<?> targetClass) {
+                return false;
+            }
+        };
+        System.out.println(staticMethodMatcher instanceof IntroductionAwareMethodMatcher);
     }
 }
