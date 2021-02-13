@@ -6,6 +6,7 @@
  */
 package com.cjq.study.uuid;
 
+import com.cjq.spring.jdbc.bean.User;
 import org.springframework.aop.IntroductionAwareMethodMatcher;
 import org.springframework.aop.support.StaticMethodMatcher;
 
@@ -28,5 +29,17 @@ public class Test {
             }
         };
         System.out.println(staticMethodMatcher instanceof IntroductionAwareMethodMatcher);
+
+        ClassLoader classLoader = Test.class.getClassLoader();
+        System.out.println(classLoader);
+        ClassLoader parent = classLoader.getParent();
+        System.out.println(parent);
+        System.out.println(parent.getParent());
+
+        ClassLoader classLoader1 = User.class.getClassLoader();
+        System.out.println(classLoader1);
+        ClassLoader parent1 = classLoader1.getParent();
+        System.out.println(parent1);
+        System.out.println(parent1.getParent());
     }
 }
