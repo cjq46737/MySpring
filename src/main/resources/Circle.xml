@@ -27,4 +27,19 @@
     <bean id="themeChangeInterceptor" class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
         <property name="paramName" value="themeName"/>
     </bean>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="suffix" value="/WEB-INF/views"/>
+        <property name="prefix" value=".jsp"/>
+    </bean>
+
+    <!--
+    <bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/userlist.html">userController</prop>
+            </props>
+        </property>
+    </bean>
+    -->
 </beans>
